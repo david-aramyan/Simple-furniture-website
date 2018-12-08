@@ -28,4 +28,20 @@ class FrontController extends Controller
         $categories = Category::all();
         return view('products', compact('products', 'categories'));
     }
+
+    public function product(Product $product)
+    {
+        $categories = Category::all();
+        return view('product', compact('product', 'categories'));
+    }
+
+    public function orderForm(Product $product)
+    {
+        return view('order_form', compact('product'));
+    }
+
+    public function orderProduct(Product $product, Request $request)
+    {
+        dd($product, $request->all());
+    }
 }
