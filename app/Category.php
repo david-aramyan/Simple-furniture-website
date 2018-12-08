@@ -15,6 +15,6 @@ class Category extends Model
 
     public function startingPrice()
     {
-        //TODO
+        return 5000;
     }
 }

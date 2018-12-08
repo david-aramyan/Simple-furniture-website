@@ -12,3 +12,5 @@
 */
 
 Route::get('/', 'FrontController@index');
+Route::get('products', 'FrontController@allProducts');
+Route::get('products/{category}', 'FrontController@categoryProducts');

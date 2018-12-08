@@ -12,8 +12,8 @@
     <title>Imperativo - Fine Italian Furniture | Home</title>
 
     <!-- Core Style CSS -->
-    <link rel="stylesheet" href="css/core-style.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{{asset('css/core-style.css')}}">
+    <link rel="stylesheet" href="{{asset('style.css')}}">
 
 </head>
 
@@ -25,7 +25,7 @@
     <div class="mobile-nav">
         <!-- Navbar Brand -->
         <div class="amado-navbar-brand">
-            <a href="index.html"><img src="img/core-img/logo.png" alt=""></a>
+            <a href="/"><img src="{{asset('img/core-img/logo.png')}}" alt=""></a>
         </div>
         <!-- Navbar Toggler -->
         <div class="amado-navbar-toggler">
@@ -41,14 +41,14 @@
         </div>
         <!-- Logo -->
         <div class="logo">
-            <a href="index.html"><img src="img/core-img/logo.png" alt=""></a>
+            <a href="/"><img src="{{asset('img/core-img/logo.png')}}" alt=""></a>
         </div>
         <!-- Amado Nav -->
         <nav class="amado-nav">
             <ul>
-                <li class="active"><a href="/">Home</a></li>
-                <li><a href="/products">Products</a></li>
-                <li><a href="/contacts">Contact Us</a></li>
+                <li @if(Request::is('/'))  class="active" @endif><a href="/">Home</a></li>
+                <li @if(Request::is('products') || Request::is('products/*')) class="active" @endif><a href="/products">Products</a></li>
+                <li @if(Request::is('contacts')) class="active" @endif><a href="/contacts">Contact Us</a></li>
             </ul>
         </nav>
         <!-- Button Group -->
@@ -110,7 +110,7 @@
                 <div class="single_widget_area">
                     <!-- Logo -->
                     <div class="footer-logo mr-50">
-                        <a href="index.html"><img style="height: 150px" src="img/core-img/logo2.png" alt=""></a>
+                        <a href="/"><img style="height: 150px" src="{{asset('img/core-img/logo2.png')}}" alt=""></a>
                     </div>
                     <!-- Copywrite Text -->
                     <p class="copywrite">
@@ -127,14 +127,14 @@
                             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#footerNavContent" aria-controls="footerNavContent" aria-expanded="false" aria-label="Toggle navigation"><i class="fa fa-bars"></i></button>
                             <div class="collapse navbar-collapse" id="footerNavContent">
                                 <ul class="navbar-nav ml-auto">
-                                    <li class="nav-item active">
+                                    <li class="nav-item @if(Request::is('/')) active @endif">
                                         <a class="nav-link" href="#">Home</a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Products</a>
+                                    <li class="nav-item @if(Request::is('products') || Request::is('products/*')) active @endif">
+                                        <a class="nav-link" href="/products">Products</a>
                                     </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link" href="#">Contact Us</a>
+                                    <li class="nav-item @if(Request::is('contacts')) active @endif">
+                                        <a class="nav-link" href="/contacts">Contact Us</a>
                                     </li>
                                 </ul>
                             </div>
@@ -148,15 +148,15 @@
 <!-- ##### Footer Area End ##### -->
 
 <!-- ##### jQuery (Necessary for All JavaScript Plugins) ##### -->
-<script src="js/jquery/jquery-2.2.4.min.js"></script>
+<script src="{{asset('js/jquery/jquery-2.2.4.min.js')}}"></script>
 <!-- Popper js -->
-<script src="js/popper.min.js"></script>
+<script src="{{asset('js/popper.min.js')}}"></script>
 <!-- Bootstrap js -->
-<script src="js/bootstrap.min.js"></script>
+<script src="{{asset('js/bootstrap.min.js')}}"></script>
 <!-- Plugins js -->
-<script src="js/plugins.js"></script>
+<script src="{{asset('js/plugins.js')}}"></script>
 <!-- Active js -->
-<script src="js/active.js"></script>
+<script src="{{asset('js/active.js')}}"></script>
 
 </body>
 
