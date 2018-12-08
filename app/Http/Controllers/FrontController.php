@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Product;
-use App\ProductImage;
+use App\Subscriber;
 use App\Category;
+use App\Product;
 
 class FrontController extends Controller
 {
@@ -43,5 +43,19 @@ class FrontController extends Controller
     public function orderProduct(Product $product, Request $request)
     {
         dd($product, $request->all());
+    }
+
+    public function contactUs(Request $request)
+    {
+        dd($request);
+    }
+
+    public function subscribe(Request $request)
+    {
+        $this->validate($request, [
+            'email' => 'email|required|unique:subscribers'
+            ]);
+        Subscriber::create($request->all());
+        return redirect()->back();
     }
 }

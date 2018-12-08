@@ -72,8 +72,10 @@
             <!-- Newsletter Form -->
             <div class="col-12 col-lg-6 col-xl-5">
                 <div class="newsletter-form mb-100">
-                    <form action="#" method="post">
-                        <input type="email" name="email" class="nl-email" placeholder="Your E-mail">
+                    <form action="/subscribe" method="post">
+                        @csrf
+                        <input type="email" name="email" class="nl-email" placeholder="Your E-mail" required>
+                        {{--<input type="hidden" name="subscribed" value="1">--}}
                         <input type="submit" value="Subscribe">
                     </form>
                 </div>
