@@ -17,6 +17,7 @@ Route::get('products/{category}', 'FrontController@categoryProducts');
 Route::get('product/{product}', 'FrontController@product');
 Route::get('product/{product}/order', 'FrontController@orderForm');
 Route::post('product/{product}/order', 'FrontController@orderProduct');
+
 Route::get('contacts', function (){
     return view('contact_us');
 });

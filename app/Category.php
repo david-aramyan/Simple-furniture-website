@@ -16,7 +16,7 @@ class Category extends Model
     public function startingPrice()
     {
         if(count($this->products) > 0) {
-            return $this->products()->orderBy('price', 'desc')->first()->price;
+            return $this->products()->orderBy('price', 'asc')->first()->price;
         }
         return 4990;
     }
