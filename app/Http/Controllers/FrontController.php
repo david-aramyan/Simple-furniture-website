@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\ContactMail;
+use App\Mail\OrderMail;
 use App\Subscriber;
 use App\Category;
 use App\Product;
@@ -42,12 +45,14 @@ class FrontController extends Controller
 
     public function orderProduct(Product $product, Request $request)
     {
-        dd($product, $request->all());
+        Mail::to('sales@imperativofurniture.com')->send(new OrderMail($product, $request->all()));
+        return redirect('/');
     }
 
     public function contactUs(Request $request)
     {
-        dd($request);
+        Mail::to('management@imperativofurniture.com')->send(new ContactMail($request->all()));
+        return redirect('/');
     }
 
     public function subscribe(Request $request)
